@@ -1,3 +1,8 @@
+double calculatePrice(double price, double tax) {
+  return price + (price * tax);
+}
+
 void main() {
-  print('Hello, Automation Test is working!');
+  double total = calculatePrice(100, 0.15);
+  print('Total Price: $total');
 }
