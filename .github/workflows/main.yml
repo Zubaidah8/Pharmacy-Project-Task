@@ -1,4 +1,4 @@
-name: Dart Automation Test
+name: Dart Unit Test
 
 on: [push]
 
@@ -8,5 +8,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
-      - name: Run Test
-        run: dart main.dart
+      
+      - name: Run Logic Check
+        run: |
+          RESULT=$(dart main.dart | grep "Total Price: 115.0")
+          if [ -z "$RESULT" ]; then
+            echo "Test Failed"
+            exit 1
+          else
+            echo "Test Passed"
+          fi
