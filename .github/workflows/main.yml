@@ -1,0 +1,12 @@
+name: Dart Automation Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - name: Run Test
+        run: dart main.dart
